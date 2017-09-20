@@ -1,8 +1,9 @@
 <?php
     require 'classes.php';
+    require 'config.php'
     function get_routes()
     {
-        $conn = new mysqli('localhost','info263', 'info263', 'akl_transport');
+        $conn = new mysqli($hostname, $username, $password, $database);
         if ($conn->connect_error)
             die($conn->connect_error);
         $query = "SELECT * FROM routes";
@@ -31,7 +32,7 @@
     }
     function get_trip_ids($route_id)
     {
-        $conn = new mysqli('localhost', 'info263', 'info263', 'akl_transport');
+        $conn = new mysqli($hostname, $username, $password, $database);
         if ($conn->connect_error)
             die($conn->connect_error);
         $query = "SELECT trip_id FROM trips WHERE route_id = '$route_id'";
