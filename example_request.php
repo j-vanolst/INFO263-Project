@@ -4,7 +4,7 @@
 # $params = array("tripid" => $trip_ids);
 function runApiCall($trip_ids)
 {
-    require_once 'include/config.php';
+    include 'include/config.php';
     require_once 'requests.php';
     $params = array("tripid" => $trip_ids);
     $url = "https://api.at.govt.nz/v2/public/realtime";

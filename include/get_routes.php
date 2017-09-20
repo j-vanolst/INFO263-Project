@@ -1,8 +1,8 @@
 <?php
-    require 'classes.php';
-    require 'config.php'
     function get_routes()
     {
+        require_once 'classes.php';
+        include 'config.php';
         $conn = new mysqli($hostname, $username, $password, $database);
         if ($conn->connect_error)
             die($conn->connect_error);
@@ -32,6 +32,8 @@
     }
     function get_trip_ids($route_id)
     {
+        require_once 'classes.php';
+        include 'config.php';
         $conn = new mysqli($hostname, $username, $password, $database);
         if ($conn->connect_error)
             die($conn->connect_error);
