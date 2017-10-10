@@ -12,8 +12,9 @@
         /**
          * @return mixed
          */
-        public function getCoordinates()
+        public function getVehicleInfo()
         {
+            echo "Vehicle ID: " . $this->vehicle_id . "<br>";
             echo "Latitude: " . $this->latitude . "<br>" . "Longitude: " . $this->longitude . "<br>";
             return $this->latitude;
         }

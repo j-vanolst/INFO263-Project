@@ -143,8 +143,7 @@ for ($i = 0; $i < count($vehicles); ++$i)
 }
 foreach ($vehicle_objects as $vehicle)
 {
-    echo $vehicle->vehicle_id . "<br>";
-    $vehicle->getCoordinates();
+    $vehicle->getVehicleInfo();
     echo "<br>";
 }
 /*foreach ($vehicles as $vehicle)
