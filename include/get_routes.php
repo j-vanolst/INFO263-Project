@@ -52,4 +52,8 @@
         $conn->close();
         return $trip_ids;
     }
+    function vehicle_json_parser($json)
+    {
+        
+    }
 ?>
