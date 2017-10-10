@@ -146,16 +146,9 @@ foreach ($vehicle_objects as $vehicle)
     $vehicle->getVehicleInfo();
     echo "<br>";
 }
-/*foreach ($vehicles as $vehicle)
-{
-    print_r($vehicle);
-    echo "<br>" . "<br>" . "<br>";
-    $position = $vehicle['vehicle']['position'];
-    print_r($position);
-    echo "<br>" . "<br>" . "<br>";
-    $id = $vehicle['vehicle']['vehicle']['id'];
-    echo $id . "<br>";
-}*/
+//START OF XML SECTION
+require_once "include/xml_generator.php";
+generate_xml($vehicle_objects);
 ?>
 <?php
 require_once 'include/footer.php';
