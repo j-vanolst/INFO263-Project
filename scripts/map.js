@@ -13,7 +13,7 @@ function initMap() {
     var infoWindow = new google.maps.InfoWindow;
 
     // Change this depending on the name of your PHP or XML file
-    downloadUrl('http://localhost/info/test.xml', function(data) {
+    downloadUrl('http://localhost/info/vehicle_markers.xml', function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName('marker');
         Array.prototype.forEach.call(markers, function(markerElem) {

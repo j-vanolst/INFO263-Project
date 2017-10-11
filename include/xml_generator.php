@@ -1,8 +1,13 @@
 <?php
 function generate_xml($vehicles)
 {
+    if (file_exists('vehicle_markers.xml'))
+    {
+        unlink('vehicle_markers.xml');
+    }
+
 $writer = new XMLWriter();
-$writer->openURI('test.xml');
+$writer->openURI('vehicle_markers.xml');
 $writer->startDocument('1.0','UTF-8');
 $writer->setIndent(true);
 $writer->startElement('markers');
