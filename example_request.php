@@ -7,10 +7,10 @@ function runApiCall($trip_ids)
     include 'include/config.php';
     require_once 'requests.php';
     $params = array("tripid" => $trip_ids);
-    $url = "https://api.at.govt.nz/v2/public/realtime";
+    $url = "https://api.at.govt.nz/v2/public/realtime/vehiclelocations";
     $results = apiCall($APIKey, $url, $params);
     // Tell the browser we are sending back json
     header('Content-Type: application/json');
-    print $results[0];
+    return $results[0];
 }
 ?>

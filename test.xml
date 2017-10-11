@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <markers>
- <marker id="2CC1" lat="-36.90927667" lng="174.683935" type="vehicle"/>
- <marker id="2CBA" lat="-36.870233" lng="174.71125" type="vehicle"/>
- <marker id="2C9D" lat="-36.85575" lng="174.75885" type="vehicle"/>
+ <marker id="36C2" lat="-36.851067" lng="174.764967" type="vehicle"/>
+ <marker id="36C5" lat="-36.854" lng="174.770783" type="vehicle"/>
+ <marker id="36C0" lat="-36.854" lng="174.770783" type="vehicle"/>
+ <marker id="37E2" lat="-36.875483" lng="174.777133" type="vehicle"/>
+ <marker id="37E3" lat="-36.880617" lng="174.761883" type="vehicle"/>
+ <marker id="36C7" lat="-36.881933" lng="174.7202" type="vehicle"/>
+ <marker id="37E1" lat="-36.849017" lng="174.730167" type="vehicle"/>
+ <marker id="36C2" lat="-36.85045833" lng="174.76572" type="vehicle"/>
 </markers>
