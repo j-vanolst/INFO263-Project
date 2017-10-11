@@ -54,6 +54,27 @@
     }
     function vehicle_json_parser($json)
     {
-        
+        require_once "classes.php";
+        $vehicles = [];
+        $vehicle_objects = [];
+        foreach ($json['response']['entity'] as $vehicle)
+        {
+            array_push($vehicles, $vehicle);
+        }
+        for ($i = 0; $i < count($vehicles); ++$i)
+        {
+            $vehicle_objects[$i] = new Vehicle;
+            $vehicle_objects[$i]->vehicle_id = $vehicles[$i]['vehicle']['vehicle']['id'];
+            $vehicle_objects[$i]->latitude = $vehicles[$i]['vehicle']['position']['latitude'];
+            $vehicle_objects[$i]->longitude = $vehicles[$i]['vehicle']['position']['longitude'];
+            $vehicle_objects[$i]->start_time = $vehicles[$i]['vehicle']['trip']['start_time'];
+            $vehicle_objects[$i]->timestamp = $vehicles[$i]['vehicle']['timestamp'];
+        }
+        foreach ($vehicle_objects as $vehicle)
+        {
+            $vehicle->getVehicleInfo();
+            echo "<br>";
+        }
+        return $vehicle_objects;
     }
 ?>

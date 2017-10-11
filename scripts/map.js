@@ -1,11 +1,3 @@
-/*
-function initMap() {
-    var auckland = {lat: -36.849, lng: 174.763};
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: auckland
-    });
-};*/
 var customLabel = {
     vehicle: {
         label: 'V'
@@ -32,6 +24,8 @@ function initMap() {
             var point = new google.maps.LatLng(
                 parseFloat(markerElem.getAttribute('lat')),
                 parseFloat(markerElem.getAttribute('lng')));
+            var start_time = markerElem.getAttribute('start_time');
+            var timestamp = markerElem.getAttribute('timestamp');
 
             var infowincontent = document.createElement('div');
             var strong = document.createElement('strong');
@@ -42,6 +36,12 @@ function initMap() {
             var text = document.createElement('text');
             text.textContent = address
             infowincontent.appendChild(text);
+            /*var start_time_info = document.createElement('text');
+            start_time_info.textContent = start_time
+            infowincontent.appendChild(start_time_info);
+            var timestamp_info = document.createElement('text');
+            timestamp_info.textContent = timestamp
+            infowincontent.appendChild(timestamp_info);*/
             var icon = customLabel[type] || {};
             var marker = new google.maps.Marker({
                 map: map,

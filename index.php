@@ -22,9 +22,10 @@ require_once 'include/header.php';
 </div>
 
 <?php
-require_once 'include/get_routes.php';
+require_once 'include/functions.php';
 $routes = get_routes();
 ?>
+
 <form method="post" action="index.php">
     <select name="route_list" id="route_list" class="chosen-select">
         <option selected="selected"></option>
@@ -40,36 +41,13 @@ $routes = get_routes();
 
 <?php
 require_once 'example_request.php';
+require_once 'include/functions.php';
+require_once "include/xml_generator.php";
 $route_id = $_POST['route_list'];
 $trip_ids = get_trip_ids($route_id);
-
-
-require_once 'include/classes.php';
-
-$test = json_decode(runApiCall($trip_ids), true);
-$vehicles = [];
-$vehicle_objects = [];
-foreach ($test['response']['entity'] as $vehicle)
-{
-    array_push($vehicles, $vehicle);
-}
-for ($i = 0; $i < count($vehicles); ++$i)
-{
-    $vehicle_objects[$i] = new Vehicle;
-    $vehicle_objects[$i]->vehicle_id = $vehicles[$i]['vehicle']['vehicle']['id'];
-    $vehicle_objects[$i]->latitude = $vehicles[$i]['vehicle']['position']['latitude'];
-    $vehicle_objects[$i]->longitude = $vehicles[$i]['vehicle']['position']['longitude'];
-}
-foreach ($vehicle_objects as $vehicle)
-{
-    $vehicle->getVehicleInfo();
-    echo "<br>";
-}
-//START OF XML SECTION
-
-require_once "include/xml_generator.php";
-generate_xml($vehicle_objects);
-
+$json = json_decode(runApiCall($trip_ids), true);
+$vehicles = vehicle_json_parser($json);
+generate_xml($vehicles);
 ?>
 
 <?php

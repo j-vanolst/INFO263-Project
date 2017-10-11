@@ -13,24 +13,12 @@ foreach ($vehicles as $vehicle)
     $writer->writeAttribute('lat', $vehicle->latitude);
     $writer->writeAttribute('lng', $vehicle->longitude);
     $writer->writeAttribute('type', 'vehicle');
+    $writer->writeAttribute('start_time', $vehicle->start_time);
+    $writer->writeAttribute('timestamp', $vehicle->timestamp);
     $writer->endElement();
 };
 $writer->endElement();
 $writer->endDocument();
 $writer->flush();
 }
-/*function generate_xml($vehicles)
-{
-    echo '<markers>';
-    foreach ($vehicles as $vehicle)
-    {
-        echo '<marker ';
-        echo 'id="' . $vehicle->vehicle_id . '" ';
-        echo 'latitude="' . $vehicle->latitude . '" ';
-        echo 'longitude="' . $vehicle->longitude . '" ';
-        echo 'type="vehicle"';
-        echo '/>';
-    }
-    echo '</markers>';
-}
-*/?>
+?>

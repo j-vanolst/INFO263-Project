@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <markers>
- <marker id="36C2" lat="-36.851067" lng="174.764967" type="vehicle"/>
- <marker id="36C5" lat="-36.854" lng="174.770783" type="vehicle"/>
- <marker id="36C0" lat="-36.854" lng="174.770783" type="vehicle"/>
- <marker id="37E2" lat="-36.875483" lng="174.777133" type="vehicle"/>
- <marker id="37E3" lat="-36.880617" lng="174.761883" type="vehicle"/>
- <marker id="36C7" lat="-36.881933" lng="174.7202" type="vehicle"/>
- <marker id="37E1" lat="-36.849017" lng="174.730167" type="vehicle"/>
- <marker id="36C2" lat="-36.85045833" lng="174.76572" type="vehicle"/>
+ <marker id="6227" lat="-36.8449" lng="174.767783" type="vehicle" start_time="01:30:00" timestamp="1507724480"/>
+ <marker id="6229" lat="-37.00549466" lng="174.790978" type="vehicle" start_time="01:15:00" timestamp="1507724652"/>
+ <marker id="7D68" lat="-36.81924833" lng="175.05816" type="vehicle" start_time="24:25:00" timestamp="1507724567"/>
+ <marker id="65FC" lat="-36.94441725" lng="174.78781822" type="vehicle" start_time="24:35:00" timestamp="1507724700"/>
 </markers>

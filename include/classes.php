@@ -7,7 +7,7 @@
     class Vehicle
     {
         //Properties
-        public $vehicle_id, $latitude, $longitude;
+        public $vehicle_id, $latitude, $longitude, $start_time, $timestamp;
 
         /**
          * @return mixed
