@@ -2,7 +2,6 @@
 if (isset($_POST['route_short_name']))
 {
     require_once "include/functions.php";
-    require_once "include/xml_generator.php";
     require_once "example_request.php";
     $route_short_name = $_POST['route_short_name'];
     $trip_ids = get_trip_ids(get_route_ids($route_short_name));
