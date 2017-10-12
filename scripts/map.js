@@ -1,19 +1,13 @@
-var customLabel = {
-    vehicle: {
-        label: 'V'
-    }
-};
-
 function initMap() {
     var auckland = {lat: -36.849, lng: 174.763};
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: auckland,
         zoom: 12
     });
-    var infoWindow = new google.maps.InfoWindow;
+infoWindow = new google.maps.InfoWindow;
 
     // Change this depending on the name of your PHP or XML file
-    downloadUrl('http://localhost/info/vehicle_markers.xml', function(data) {
+/*    downloadUrl('http://localhost/info/vehicle_markers.xml', function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName('marker');
         Array.prototype.forEach.call(markers, function(markerElem) {
@@ -36,12 +30,12 @@ function initMap() {
             var text = document.createElement('text');
             text.textContent = address
             infowincontent.appendChild(text);
-            /*var start_time_info = document.createElement('text');
+            /!*var start_time_info = document.createElement('text');
             start_time_info.textContent = start_time
             infowincontent.appendChild(start_time_info);
             var timestamp_info = document.createElement('text');
             timestamp_info.textContent = timestamp
-            infowincontent.appendChild(timestamp_info);*/
+            infowincontent.appendChild(timestamp_info);*!/
             var icon = customLabel[type] || {};
             var marker = new google.maps.Marker({
                 map: map,
@@ -53,11 +47,12 @@ function initMap() {
                 infoWindow.open(map, marker);
             });
         });
-    });
+    });*/
 }
 
 
 
+/*
 function downloadUrl(url, callback) {
     var request = window.ActiveXObject ?
         new ActiveXObject('Microsoft.XMLHTTP') :
@@ -74,4 +69,5 @@ function downloadUrl(url, callback) {
     request.send(null);
 }
 
-function doNothing() {}
+
+function doNothing() {}*/
