@@ -75,12 +75,6 @@
         }
         for ($i = 0; $i < count($vehicles); ++$i)
         {
-/*            $vehicle_objects[$i] = new Vehicle;
-            $vehicle_objects[$i]->vehicle_id = $vehicles[$i]['vehicle']['vehicle']['id'];
-            $vehicle_objects[$i]->latitude = $vehicles[$i]['vehicle']['position']['latitude'];
-            $vehicle_objects[$i]->longitude = $vehicles[$i]['vehicle']['position']['longitude'];
-            $vehicle_objects[$i]->start_time = $vehicles[$i]['vehicle']['trip']['start_time'];
-            $vehicle_objects[$i]->timestamp = $vehicles[$i]['vehicle']['timestamp'];*/
             $id_string = $vehicles[$i]['vehicle']['vehicle']['id'];
             $lat_string = $vehicles[$i]['vehicle']['position']['latitude'];
             $lng_string = $vehicles[$i]['vehicle']['position']['longitude'];

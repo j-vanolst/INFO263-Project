@@ -7,14 +7,11 @@ require_once 'include/header.php';
 <script src="scripts/map.js"></script>
 <script src="scripts/chosen.jquery.js"></script>
 <script src="ajax.js"></script>
-
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgDsjTAoG9ylNSKi3X_6T2hANiuHkDmQE&callback=initMap">
 </script>
-
 <div id="map">
 </div>
-
 <?php
 require_once 'include/functions.php';
 $routes = get_routes();
@@ -31,16 +28,6 @@ $routes = get_routes();
         ?>
     </select>
 </form>
-<?php
-require_once 'example_request.php';
-require_once 'include/functions.php';
-require_once "include/xml_generator.php";
-//$trip_ids = get_trip_ids($route_id);
-//$json = json_decode(runApiCall($trip_ids), true);
-//$vehicles = vehicle_json_parser($json);
-//generate_xml($vehicles);
-?>
-
 <?php
 require_once 'include/footer.php';
 ?>
