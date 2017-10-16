@@ -1,9 +1,14 @@
+// Initialization of the Google Map centred on Auckland
+
 function initMap() {
     var auckland = {lat: -36.849, lng: 174.763};
     map = new google.maps.Map(document.getElementById('map'), {
         center: auckland,
         zoom: 12
     });
+
+//Google Maps infoWindow functions to display trip data on vehicle location markers
+
 infoWindow = new google.maps.InfoWindow;
 
     // Change this depending on the name of your PHP or XML file

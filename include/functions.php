@@ -1,4 +1,7 @@
 <?php
+
+    // MQSQLI object to query akl_transport for distinct route_short_name
+
     function get_routes()
     {
         include 'config.php';
@@ -20,6 +23,9 @@
         $conn->close();
         return $routes;
     }
+
+    // Query akl_transport database for each route_id based on route_short_name searched by the user
+
     function get_route_ids($route_short_name)
     {
         include 'config.php';
@@ -41,6 +47,8 @@
         $conn->close();
         return $route_ids;
     }
+
+    // Query akl_database to select relevant trip_ids for the route_short_name searched by the user
     function get_trip_ids($route_ids)
     {
         include 'config.php';
@@ -65,28 +73,36 @@
         $conn->close();
         return $trip_ids;
     }
+
+    // JSON parser to format vehicle location data
+
     function vehicle_json_parser($json)
     {
         $vehicles = [];
         $vehicle_objects = [];
-        foreach ($json['response']['entity'] as $vehicle)
-        {
-            array_push($vehicles, $vehicle);
+        $response = $json['response'];
+        if (sizeof($response) > 0) {
+            foreach ($response['entity'] as $vehicle) {
+                array_push($vehicles, $vehicle);
+            }
+            for ($i = 0; $i < count($vehicles); ++$i) {
+                /*            $vehicle_objects[$i] = new Vehicle;
+                            $vehicle_objects[$i]->vehicle_id = $vehicles[$i]['vehicle']['vehicle']['id'];
+                            $vehicle_objects[$i]->latitude = $vehicles[$i]['vehicle']['position']['latitude'];
+                            $vehicle_objects[$i]->longitude = $vehicles[$i]['vehicle']['position']['longitude'];
+                            $vehicle_objects[$i]->start_time = $vehicles[$i]['vehicle']['trip']['start_time'];
+                            $vehicle_objects[$i]->timestamp = $vehicles[$i]['vehicle']['timestamp'];*/
+                $id_string = $vehicles[$i]['vehicle']['vehicle']['id'];
+                $lat_string = $vehicles[$i]['vehicle']['position']['latitude'];
+                $lng_string = $vehicles[$i]['vehicle']['position']['longitude'];
+                $timestamp_string = $vehicles[$i]['vehicle']['timestamp'];
+                $vehicle_objects[$i] = [];
+                array_push($vehicle_objects[$i], $id_string);
+                array_push($vehicle_objects[$i], $lat_string);
+                array_push($vehicle_objects[$i], $lng_string);
+                array_push($vehicle_objects[$i], $timestamp_string);
+            }
         }
-        for ($i = 0; $i < count($vehicles); ++$i)
-        {
-            $id_string = $vehicles[$i]['vehicle']['vehicle']['id'];
-            $lat_string = $vehicles[$i]['vehicle']['position']['latitude'];
-            $lng_string = $vehicles[$i]['vehicle']['position']['longitude'];
-            $start_time_string = $vehicles[$i]['vehicle']['trip']['start_time'];
-            $timestamp_string = $vehicles[$i]['vehicle']['timestamp'];
-            $vehicle_objects[$i] = [];
-            array_push($vehicle_objects[$i], $id_string);
-            array_push($vehicle_objects[$i], $lat_string);
-            array_push($vehicle_objects[$i], $lng_string);
-            array_push($vehicle_objects[$i], $start_time_string);
-            array_push($vehicle_objects[$i], $timestamp_string);
-        }
-        return ($vehicle_objects);
+        return $vehicle_objects;
     }
 ?>
