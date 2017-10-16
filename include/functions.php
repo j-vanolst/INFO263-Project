@@ -95,11 +95,13 @@
                 $id_string = $vehicles[$i]['vehicle']['vehicle']['id'];
                 $lat_string = $vehicles[$i]['vehicle']['position']['latitude'];
                 $lng_string = $vehicles[$i]['vehicle']['position']['longitude'];
+                $start_time = $vehicles[$i]['vehicle']['trip']['start_time'];
                 $timestamp_string = $vehicles[$i]['vehicle']['timestamp'];
                 $vehicle_objects[$i] = [];
                 array_push($vehicle_objects[$i], $id_string);
                 array_push($vehicle_objects[$i], $lat_string);
                 array_push($vehicle_objects[$i], $lng_string);
+                array_push($vehicle_objects[$i], $start_time);
                 array_push($vehicle_objects[$i], $timestamp_string);
             }
         }
